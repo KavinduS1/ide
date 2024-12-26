@@ -1,0 +1,206 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1e1e1e; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px; /* Thin scrollbar */
+    height: 6px; /* Thin scrollbar for horizontal scroll */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2d2d2d; /* Dark track background */
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff; /* White scrollbar thumb */
+    border-radius: 3px;
+    transition: background 0.3s ease; /* Smooth hover effect */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f0f0f0; /* Slightly lighter white on hover */
+  }
+  
+  /* Apply custom scrollbar to all scrollable elements */
+  .editor, .preview, .CodeMirror-scroll, iframe {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #ffffff #2d2d2d; /* For Firefox */
+  }
+  
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #2d2d2d; /* Dark container background */
+    animation: fadeIn 0.5s ease-in-out; /* Smooth fade-in animation */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .controls {
+    display: flex;
+    gap: 10px;
+    padding: 16px;
+    background: #252526; /* Dark controls background */
+    border-bottom: 1px solid #444;
+    align-items: center;
+  }
+  
+  #toggle-btn,
+  #clear-btn,
+  #download-btn {
+    padding: 12px 20px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease; /* Smooth hover and click effects */
+  }
+  
+  #toggle-btn:hover,
+  #clear-btn:hover,
+  #download-btn:hover {
+    background: #4338ca;
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  #toggle-btn:active,
+  #clear-btn:active,
+  #download-btn:active {
+    transform: translateY(0); /* Reset on click */
+  }
+  
+  #title-input {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #1e1e1e;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    flex: 1;
+    max-width: 200px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus effect */
+  }
+  
+  #title-input::placeholder {
+    color: #888;
+  }
+  
+  #title-input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2); /* Focus glow */
+  }
+  
+  .editor-container {
+    display: flex;
+    flex: 1;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    background: #1e1e1e; /* Dark editor container background */
+    transition: opacity 0.3s ease; /* Smooth fade effect */
+  }
+  
+  .editor {
+    flex: 1;
+    padding: 16px;
+    border-right: 1px solid #444;
+    overflow: auto;
+    background: #252526; /* Dark editor background */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and slide effect */
+  }
+  
+  .editor:last-child {
+    border-right: none;
+  }
+  
+  .editor h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4f46e5; /* Accent color for headings */
+    margin-bottom: 12px;
+    transition: color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .CodeMirror {
+    height: calc(100% - 24px);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 8px;
+    background: #1e1e1e; /* Dark editor background */
+    color: #e0e0e0; /* Light text */
+    transition: opacity 0.3s ease; /* Smooth fade effect */
+  }
+  
+  .CodeMirror-gutters {
+    background: #1e1e1e; /* Dark gutter background */
+    border-right: 1px solid #444;
+  }
+  
+  .preview {
+    flex: 1;
+    padding: 16px;
+    background: #ffffff; /* Light preview background */
+    overflow: auto;
+    animation: slideUp 0.5s ease-in-out; /* Smooth slide-up animation */
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .preview h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4f46e5; /* Accent color for headings */
+    margin-bottom: 12px;
+  }
+  
+  iframe {
+    width: 100%;
+    height: calc(100% - 24px);
+    border: none;
+    border-radius: 8px;
+    background: #ffffff; /* Light iframe background */
+    transition: opacity 0.3s ease; /* Smooth fade effect */
+  }
+  
+  /* Class to hide the editor container */
+  .hide-editors {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px); /* Smooth slide-up effect */
+  }
